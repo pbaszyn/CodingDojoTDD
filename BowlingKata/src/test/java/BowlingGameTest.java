@@ -16,4 +16,16 @@ public class BowlingGameTest {
         //then
         assertEquals(score, 5);
     }
+
+    @Test
+    void shouldReturnScore4SimpleRollSequence() {
+        //given
+        BowlingGame game = new BowlingGame();
+
+        //when
+        int score = game.getScore(2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2);
+
+        //then
+        assertEquals(score, 40);
+    }
 }
