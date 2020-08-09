@@ -1,18 +1,19 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BowlingGameTest {
 
     @Test
-    void shouldReturnSomePoints() {
+    void shouldReturnScore4OneRoll() {
         //given
         BowlingGame game = new BowlingGame();
 
         //when
-        int score = game.getScore();
+        int score = game.getScore(5);
 
 
         //then
-        Assertions.assertEquals(score, 0);
+        assertEquals(score, 5);
     }
 }
