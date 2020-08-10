@@ -29,6 +29,17 @@ public class BowlingGameTest {
         assertEquals(score, 48);
     }
 
+    @Test
+    void shouldReturnScoreWhenSpareHappensAtTheEndOfTheGame() {
+        //given
+
+        //when
+        int score = game.getScore(2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,5,7);
+
+        //then
+        assertEquals(score, 53);
+    }
+
     @BeforeEach
     void setUp() {
         game = new BowlingGame();
