@@ -1,31 +1,36 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BowlingGameTest {
 
-    @Test
-    void shouldReturnScore4OneRoll() {
-        //given
-        BowlingGame game = new BowlingGame();
-
-        //when
-        int score = game.getScore(5);
-
-
-        //then
-        assertEquals(score, 5);
-    }
+    BowlingGame game;
 
     @Test
     void shouldReturnScore4SimpleRollSequence() {
         //given
-        BowlingGame game = new BowlingGame();
 
         //when
         int score = game.getScore(2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2);
 
         //then
         assertEquals(score, 40);
+    }
+
+    @Test
+    void shouldReturnScoreWhenSpareHappensDuringTheGame() {
+        //given
+
+        //when
+        int score = game.getScore(5,5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2);
+
+        //then
+        assertEquals(score, 48);
+    }
+
+    @BeforeEach
+    void setUp() {
+        game = new BowlingGame();
     }
 }
