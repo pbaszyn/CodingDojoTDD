@@ -40,6 +40,17 @@ public class BowlingGameTest {
         assertEquals(score, 53);
     }
 
+    @Test
+    void shouldReturnScoreWhenStrikeHappensDuringTheGame() {
+        //given
+
+        //when
+        int score = game.getScore(10,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2);
+
+        //then
+        assertEquals(score, 50);
+    }
+
     @BeforeEach
     void setUp() {
         game = new BowlingGame();
