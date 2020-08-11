@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BowlingGameTest {
+public class BowlingGameTestJunit {
 
     BowlingGame game;
 
@@ -12,7 +12,7 @@ public class BowlingGameTest {
         //given
 
         //when
-        int score = game.getScore(2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2);
+        int score = game.getScore(2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2);
 
         //then
         assertEquals(score, 40);
@@ -23,7 +23,7 @@ public class BowlingGameTest {
         //given
 
         //when
-        int score = game.getScore(5,5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2);
+        int score = game.getScore(5, 5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2);
 
         //then
         assertEquals(score, 48);
@@ -34,7 +34,7 @@ public class BowlingGameTest {
         //given
 
         //when
-        int score = game.getScore(2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,5,5,7);
+        int score = game.getScore(2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 5, 7);
 
         //then
         assertEquals(score, 53);
@@ -45,7 +45,7 @@ public class BowlingGameTest {
         //given
 
         //when
-        int score = game.getScore(10,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2);
+        int score = game.getScore(10, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2);
 
         //then
         assertEquals(score, 50);
@@ -56,7 +56,7 @@ public class BowlingGameTest {
         //given
 
         //when
-        int score = game.getScore(2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,10,3,4);
+        int score = game.getScore(2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 10, 3, 4);
 
         //then
         assertEquals(score, 53);
