@@ -15,7 +15,7 @@ public class BowlingGameTestTestNG {
         int score = game.getScore(2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2);
 
         //then
-        assertEquals(score, 40);
+        assertEquals(40, score);
     }
 
     @Test
@@ -26,7 +26,7 @@ public class BowlingGameTestTestNG {
         int score = game.getScore(5, 5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2);
 
         //then
-        assertEquals(score, 48);
+        assertEquals(48, score);
     }
 
     @Test
@@ -37,7 +37,7 @@ public class BowlingGameTestTestNG {
         int score = game.getScore(2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 5, 7);
 
         //then
-        assertEquals(score, 53);
+        assertEquals(53, score);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class BowlingGameTestTestNG {
         int score = game.getScore(10, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2);
 
         //then
-        assertEquals(score, 50);
+        assertEquals(50, score);
     }
 
     @Test
@@ -59,7 +59,7 @@ public class BowlingGameTestTestNG {
         int score = game.getScore(2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 10, 3, 4);
 
         //then
-        assertEquals(score, 53);
+        assertEquals(53, score);
     }
 
     @BeforeMethod
