@@ -29,7 +29,7 @@ public class StringCalculatorJUnitTest {
     }
 
     @Test
-    void shouldReturnMessageWhenDoubleSeparatingCharacterFound(){
+    void shouldReturnMessageWhenDoubledSeparatingCharacterFound(){
         //given
 
         //when
@@ -39,7 +39,7 @@ public class StringCalculatorJUnitTest {
         assertEquals("Number expected but '\\n' found at position 8.",result);
     }
     @Test
-    void shouldReturnMessageWhenDoubleSeparatingCharacterFoundRevert(){
+    void shouldReturnMessageWhenDoubledSeparatingCharacterFoundRevert(){
         //given
 
         //when
@@ -61,22 +61,11 @@ public class StringCalculatorJUnitTest {
     }
 
     @Test
-    void shouldReturnSumOfGivenNumbersSeparatedByDifferentSeparators() {
-        //given
-
-        //when
-        String result  = calculator.add("2.5,5.5;10|2 5");
-
-        //then
-        assertEquals("25.0",result);
-    }
-
-    @Test
     void shouldReturnMessageWhenNegativeNumbersGiven() {
         //given
 
         //when
-        String result  = calculator.add("-5,-5.2;10|2 5");
+        String result  = calculator.add("-5,-5.2,10,2 5");
 
         //then
         assertEquals("Negative not allowed : -5, -5.2",result);
@@ -87,6 +76,7 @@ public class StringCalculatorJUnitTest {
     void shouldReturnSumWhenCustomSeparatorIsSpecified() {
         //given
 
+        //when
         String result = calculator.add("//;\n2.5;5.3;10;30.7;15.5");
 
         //then
@@ -97,10 +87,22 @@ public class StringCalculatorJUnitTest {
     void shouldReturnErrorMessageWhenCustomSeparatorIsSpecifiedButWrongFind() {
         //given
 
+        //when
         String result = calculator.add("//;\n2.5;5.3;10,30.7;15.5");
 
         //then
         assertEquals("; expected but ',' found at position 14.",result);
+    }
+
+    @Test
+    void shouldReturnAllFoundedErrorsForGivenStringOfNumbers() {
+        //given
+
+        //when
+        String result = calculator.add("//;\n2.5;5.3;10,30.7;15.5,");
+
+        //then
+        assertEquals("Number expected but EOF found\n; expected but ',' found at position 14.",result);
     }
 
     @BeforeEach

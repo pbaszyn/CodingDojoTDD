@@ -1,24 +1,44 @@
+import java.awt.image.AreaAveragingScaleFilter;
+
 public class StringCalculator {
+
+    String resultOrMessage = "";
+    StringOfNumbersAnalizer stringOfNumbers;
 
     public String add(String numbers) {
 
-        StringOfNumbersManipulator stringOfNumbers = new StringOfNumbersManipulator(numbers);
-        stringOfNumbers.analyzeString();
-
-        if (stringOfNumbers.isEmpty()) {
-            return "0.0";
-        }else if (stringOfNumbers.isDoubledSeparators()){
-            return "Number expected but '" + stringOfNumbers.getIllegalSeparator() + "' found at position " + stringOfNumbers.getIllegalSeparatorPosition() + ".";
-        }else if (stringOfNumbers.eofFoundInsteadOfNumber()){
-            return "Number expected but EOF found";
-        }else if (stringOfNumbers.foundNegativeNumbers()){
-            return "Negative not allowed :" + stringOfNumbers.getNegativeNumbersList();
-        }else if (stringOfNumbers.foundWrongCustomSeparator()){
-            return stringOfNumbers.getCustomSeparator() + " expected but '"+stringOfNumbers.getWrongSeparator()+"' found at position "+stringOfNumbers.getWrongSeparatorPosition()+".";
+        this.stringOfNumbers = new StringOfNumbersAnalizer(numbers);
+        if (numbers.isBlank()) {
+            resultOrMessage =  "0.0";
         }
+        stringOfNumbers.analyzeString();
+        checkNumbersStringForErrors ();
 
-            return stringOfNumbers.getSumOfNumbers();
+        if (resultOrMessage.isBlank()){ resultOrMessage = stringOfNumbers.getSumOfNumbers();}
 
+        return resultOrMessage;
     }
 
+    private void checkNumbersStringForErrors() {
+        if (stringOfNumbers.isDoubledSeparators()){
+            addToMessage("Number expected but '" + stringOfNumbers.getIllegalSeparator() + "' found at position " + stringOfNumbers.getIllegalSeparatorPosition() + ".");
+        }
+        if (stringOfNumbers.eofFoundInsteadOfNumber()){
+            addToMessage( "Number expected but EOF found");
+        }
+        if (stringOfNumbers.foundNegativeNumbers()){
+            addToMessage( "Negative not allowed :" + stringOfNumbers.getNegativeNumbersList());
+        }
+        if (stringOfNumbers.foundWrongCustomSeparator()){
+            addToMessage( stringOfNumbers.getCustomSeparator() + " expected but '"+stringOfNumbers.getWrongSeparator()+"' found at position "+stringOfNumbers.getWrongSeparatorPosition()+".");
+        }
+    }
+
+    private void addToMessage(String currentMessage){
+        if (resultOrMessage.isBlank()){
+            resultOrMessage = currentMessage;
+        }else {
+            resultOrMessage += "\n" + currentMessage;
+        }
+    }
 }

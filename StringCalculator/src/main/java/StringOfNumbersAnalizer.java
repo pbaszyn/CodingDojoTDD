@@ -1,7 +1,7 @@
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class StringOfNumbersManipulator {
+public class StringOfNumbersAnalizer {
 
     private String numbers;
     private String illegalSeparator = "";
@@ -27,16 +27,13 @@ public class StringOfNumbersManipulator {
     public boolean foundNegativeNumbers() {
         return !negativeNumbersList.isEmpty();
     }
-    public StringOfNumbersManipulator(String numbers) {
+    public StringOfNumbersAnalizer(String numbers) {
         this.numbers = numbers;
     }
     public String getIllegalSeparator() {
         return illegalSeparator;
     }
     public int getIllegalSeparatorPosition() { return illegalSeparatorPosition; }
-    public boolean isEmpty(){
-        return numbers.isBlank();
-    }
     public boolean isDoubledSeparators(){
         return illegalSeparatorPosition > -1;
     }
@@ -46,6 +43,7 @@ public class StringOfNumbersManipulator {
     public boolean foundWrongCustomSeparator() {
         return wrongSeparatorPosition > -1;
     }
+
     public void analyzeString(){
         searchForCustomSeparator();
         if (searchForDoubledSeparators("\\d+,\\n")){
